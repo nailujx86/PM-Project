@@ -1,13 +1,13 @@
 package gr4.pm.dhbwverwaltung.auth;
 
-import org.mindrot.jbcrypt.BCrypt;
+import at.favre.lib.crypto.bcrypt.BCrypt;
 
 public class Authentication {
     public static String hashpw(String password) {
-        return BCrypt.hashpw(password, BCrypt.gensalt());
+        return BCrypt.with(BCrypt.Version.VERSION_2Y).hashToString(12, password.toCharArray());
     }
 
     public static boolean checkpw(String password, String hashpw) {
-        return BCrypt.checkpw(password, hashpw);
+        return BCrypt.verifyer().verify(password.toCharArray(), hashpw.toCharArray()).verified;
     }
 }
