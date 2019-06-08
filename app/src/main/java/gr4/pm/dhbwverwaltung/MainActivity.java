@@ -8,6 +8,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import gr4.pm.dhbwverwaltung.auth.Authentication;
+import gr4.pm.dhbwverwaltung.io.FileIO;
 import gr4.pm.dhbwverwaltung.objects.User;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        initUserDatabase();
+
         setContentView(R.layout.activity_main);
 
         /* /// TESTS ///
@@ -28,5 +32,20 @@ public class MainActivity extends AppCompatActivity {
         Log.i("json2", User.toJSON(users2));
         Log.i("json3", Authentication.checkpw("abdef", user2.getPasswhash()) ? "true": "false");
         */
+    }
+
+    private void initUserDatabase() {
+        if (!FileIO.fileExists("/dhbwverwaltung/users.json", false)) {
+            ArrayList<User> users = new ArrayList<>();
+            User user1 = new User(123, "test", "test@dhbw.de", Authentication.hashpw("test"));
+            User user2 = new User(123, "julian", "email@email.de", Authentication.hashpw("passwort"));
+            users.add(user1);
+            users.add(user2);
+            FileIO file = new FileIO("/dhbwverwaltung/users.json", false);
+            file.writeToFile(User.toJSON(users));
+            Log.i("dhbwverwaltung/userdb", "created");
+        } else {
+            Log.i("dhbwverwaltung/userdb", "exists");
+        }
     }
 }
