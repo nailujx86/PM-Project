@@ -51,13 +51,19 @@ public class User {
         this.passwhash = passwhash;
     }
 
+    /**
+     * Wandelt einen json String in einem bestimmten Format in eine ArrayList von Usern um
+     *
+     * @param json JSON String der geparsed werden soll
+     * @return ArrayList des Typs User
+     */
     public static ArrayList<User> parse(String json) {
         ArrayList<User> users = new ArrayList<>();
         JSONArray userArr = null;
         try {
             JSONObject obj = new JSONObject(json);
             userArr = obj.getJSONArray("users");
-            for(int i = 0; i < userArr.length(); i++) {
+            for (int i = 0; i < userArr.length(); i++) {
                 JSONObject userDetail = userArr.getJSONObject(i);
                 String name = userDetail.getString("name");
                 String email = userDetail.getString("email");
@@ -71,11 +77,17 @@ public class User {
         return users;
     }
 
+    /**
+     * Wandelt eine ArrayList von Usern in einen JSON String um
+     *
+     * @param users ArrayList des Typs User
+     * @return JSON String
+     */
     public static String toJSON(ArrayList<User> users) {
         JSONObject obj = new JSONObject();
         JSONArray arr = new JSONArray();
         try {
-            for(User user : users) {
+            for (User user : users) {
                 JSONObject userobj = new JSONObject();
                 userobj.put("name", user.getName());
                 userobj.put("email", user.getEmail());

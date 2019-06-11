@@ -12,6 +12,13 @@ import java.util.Scanner;
 public class FileIO {
     private File file;
 
+    /**
+     * Überprüft ob eine Datei bereits existiert
+     *
+     * @param name
+     * @param external
+     * @return boolean exisitiert Datei
+     */
     public static boolean fileExists(String name, boolean external) {
         if(external) {
             return new File(Environment.getDataDirectory(), name).exists();
@@ -20,6 +27,11 @@ public class FileIO {
         }
     }
 
+    /**
+     * Überprüft ob Berechtigung für externer Speicher schreiben erteilt wurde
+     *
+     * @return boolean
+     */
     public static boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED.equals(state)) {
@@ -27,6 +39,12 @@ public class FileIO {
         }
         return false;
     }
+
+    /**
+     * Überprüft ob Berechtigung für externer Speicher lesen erteilt wurde
+     *
+     * @return boolean
+     */
     public static boolean isExternalStorageReadable() {
         String state = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED.equals(state) ||
@@ -36,6 +54,12 @@ public class FileIO {
         return false;
     }
 
+    /**
+     * Konstruktor für File-Object
+     *
+     * @param name
+     * @param external use external storage
+     */
     public FileIO(String name, boolean external) {
         if(external) {
             file = new File(Environment.getDataDirectory(), name);
@@ -48,6 +72,12 @@ public class FileIO {
         return file;
     }
 
+    /**
+     * Schreibt String in File
+     *
+     * @param stufftowrite
+     * @return
+     */
     public boolean writeToFile(String stufftowrite) {
         try {
             FileOutputStream stream = new FileOutputStream(file);
@@ -60,6 +90,11 @@ public class FileIO {
         }
     }
 
+    /**
+     * Liest String von File
+     *
+     * @return String
+     */
     public String readFromFile() {
         try {
             Scanner scanner = new Scanner(file, StandardCharsets.UTF_8.name());

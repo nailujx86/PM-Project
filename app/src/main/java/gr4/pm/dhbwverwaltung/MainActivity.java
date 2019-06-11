@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         */
     }
 
+    /**
+     * Initialisiert User Datenbank
+     */
     private void initUserDatabase() {
         if (!FileIO.fileExists("/dhbwverwaltung/users.json", false)) {
             ArrayList<User> users = new ArrayList<>();
