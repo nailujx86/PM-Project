@@ -1,10 +1,13 @@
 package gr4.pm.dhbwverwaltung;
 
+import android.content.Intent;
+import android.preference.EditTextPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import gr4.pm.dhbwverwaltung.auth.Authentication;
@@ -12,14 +15,13 @@ import gr4.pm.dhbwverwaltung.io.FileIO;
 import gr4.pm.dhbwverwaltung.objects.User;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         initUserDatabase();
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         /* /// TESTS ///
         User user1 = new User(123, "terst", "test@test.de", Authentication.hashpw("abc"));
@@ -34,9 +36,6 @@ public class MainActivity extends AppCompatActivity {
         */
     }
 
-    /**
-     * Initialisiert User Datenbank
-     */
     private void initUserDatabase() {
         if (!FileIO.fileExists("/dhbwverwaltung/users.json", false)) {
             ArrayList<User> users = new ArrayList<>();
@@ -50,5 +49,14 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Log.i("dhbwverwaltung/userdb", "exists");
         }
+    }
+
+    public void loginUser(View view){
+        Intent intent = new Intent(this, MenuActivity.class);
+        EditText editTextUserName = (EditText) findViewById(R.id.editText2);
+        String username = editTextUserName.getText().toString(); // speichert username in
+        EditText editTextPassword = (EditText) findViewById(R.id.editText);
+        String password = editTextPassword.getText().toString();
+        startActivity(intent); //wechselt Ansicht zu activity_menu
     }
 }

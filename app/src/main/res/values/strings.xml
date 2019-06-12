@@ -3,4 +3,12 @@
     <string name="edit_loginMail">DHBW-Mail</string>
     <string name="edit_loginPassword">Passwort</string>
     <string name="button_login">Anmelden</string>
+    <string name="button_logoff">Abmelden</string>
+    <string name="view_Notizen">Notizen</string>
+    <string name="view_Fächer">Fächer</string>
+    <string name="view_Gruppen">Gruppen</string>
+    <string name="view_Professoren">Professoren</string>
+    <string name="view_Sekretariat">Sekretariat</string>
+    <string name="view_Studenten">Studenten</string>
+    <string name="view_Einstellungen">Einstellungen</string>
 </resources>
