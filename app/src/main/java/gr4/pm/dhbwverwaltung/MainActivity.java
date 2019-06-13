@@ -58,5 +58,6 @@ public class MainActivity extends AppCompatActivity {
         EditText editTextPassword = (EditText) findViewById(R.id.editText);
         String password = editTextPassword.getText().toString();
         startActivity(intent); //wechselt Ansicht zu activity_menu
+        finish();
     }
 }

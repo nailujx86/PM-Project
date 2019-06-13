@@ -80,6 +80,7 @@ public class FileIO {
      */
     public boolean writeToFile(String stufftowrite) {
         try {
+            file.getParentFile().mkdirs();
             FileOutputStream stream = new FileOutputStream(file);
             stream.write(stufftowrite.getBytes());
             stream.close();
