@@ -17,7 +17,28 @@ public class MenuActivity extends MainActivity{
     }
     public void logoffUser(View view) {
         Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent); //wechselt Ansicht zu activity_menu
+        startActivity(intent); //wechselt Ansicht zu activity_main
+        finish();
+        overridePendingTransition(0,0);
+    }
+
+    public void openNoteView(View view) {
+        Intent intent = new Intent(this, NoteActivity.class);
+        startActivity(intent); //wechselt Ansicht zu activity_main
+        finish();
+        overridePendingTransition(0,0);
+    }
+
+    public void openProfView(View view) {
+        Intent intent = new Intent(this, ProfActivity.class);
+        startActivity(intent); //wechselt Ansicht zu activity_main
+        finish();
+        overridePendingTransition(0,0);
+    }
+
+    public void openSecretaryView(View view) {
+        Intent intent = new Intent(this, SecretaryActivity.class);
+        startActivity(intent); //wechselt Ansicht zu activity_main
         finish();
         overridePendingTransition(0,0);
     }
