@@ -59,5 +59,6 @@ public class MainActivity extends AppCompatActivity {
         String password = editTextPassword.getText().toString();
         startActivity(intent); //wechselt Ansicht zu activity_menu
         finish();
+        overridePendingTransition(0,0);
     }
 }
