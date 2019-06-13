@@ -15,6 +15,7 @@ public class MenuActivity extends MainActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
     }
+
     public void logoffUser(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent); //wechselt Ansicht zu activity_main
@@ -22,23 +23,24 @@ public class MenuActivity extends MainActivity{
         overridePendingTransition(0,0);
     }
 
+    // funktioniert nicht in gemeinsamer Funktion, müssen separate Funktionen wie hier sein
     public void openNoteView(View view) {
         Intent intent = new Intent(this, NoteActivity.class);
-        startActivity(intent); //wechselt Ansicht zu activity_main
+        startActivity(intent); //wechselt Ansicht zu activity_note
         finish();
         overridePendingTransition(0,0);
     }
 
     public void openProfView(View view) {
         Intent intent = new Intent(this, ProfActivity.class);
-        startActivity(intent); //wechselt Ansicht zu activity_main
+        startActivity(intent); //wechselt Ansicht zu activity_prof
         finish();
         overridePendingTransition(0,0);
     }
 
     public void openSecretaryView(View view) {
         Intent intent = new Intent(this, SecretaryActivity.class);
-        startActivity(intent); //wechselt Ansicht zu activity_main
+        startActivity(intent); //wechselt Ansicht zu activity_secretary
         finish();
         overridePendingTransition(0,0);
     }
