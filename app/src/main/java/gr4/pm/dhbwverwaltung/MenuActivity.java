@@ -16,6 +16,7 @@ public class MenuActivity extends MainActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 
     public void logoffUser(View view) {
