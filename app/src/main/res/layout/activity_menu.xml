@@ -6,108 +6,6 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView8"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="true"
-        android:onClick="openProfView"
-        android:text="@string/view_Professoren"
-        android:textAlignment="textStart"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textDirection="inherit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="true"
-        android:onClick="openSecretaryView"
-        android:text="@string/view_Sekretariat"
-        android:textAlignment="textStart"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textDirection="inherit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="false"
-        android:text="@string/view_Einstellungen"
-        android:textAlignment="textStart"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textDirection="inherit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="false"
-        android:text="@string/view_Fächer"
-        android:textAlignment="textStart"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textDirection="inherit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="false"
-        android:text="@string/view_Gruppen"
-        android:textAlignment="textStart"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textDirection="inherit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="false"
-        android:text="@string/view_Studenten"
-        android:textAlignment="textStart"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textDirection="inherit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-    <TextView
         android:id="@+id/textView_Überschrift2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -118,23 +16,121 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="true"
-        android:onClick="openNoteView"
-        android:text="@string/view_Notizen"
-        android:textAlignment="textStart"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textDirection="inherit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Überschrift2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:focusable="auto"
+                android:onClick="openNoteView"
+                android:text="@string/view_Notizen"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textDirection="inherit" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="false"
+                android:focusable="auto"
+                android:text="@string/view_Einstellungen"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textDirection="inherit" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="false"
+                android:focusable="auto"
+                android:text="@string/view_Fächer"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textDirection="inherit" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="false"
+                android:focusable="auto"
+                android:text="@string/view_Gruppen"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textDirection="inherit" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="false"
+                android:focusable="auto"
+                android:text="@string/view_Studenten"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textDirection="inherit" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:focusable="auto"
+                android:onClick="openProfView"
+                android:text="@string/view_Professoren"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textDirection="inherit" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:focusable="auto"
+                android:onClick="openSecretaryView"
+                android:text="@string/view_Sekretariat"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textDirection="inherit" />
+        </LinearLayout>
+    </ScrollView>
 
     <Button
         android:id="@+id/button"

@@ -1,5 +1,10 @@
 package gr4.pm.dhbwverwaltung.auth;
 
+import android.util.Log;
+
+import gr4.pm.dhbwverwaltung.data.Data;
+import gr4.pm.dhbwverwaltung.objects.User;
+
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
 public class Authentication {
@@ -24,5 +29,15 @@ public class Authentication {
      */
     public static boolean checkpw(String password, String hashpw) {
         return BCrypt.verifyer().verify(password.toCharArray(), hashpw.toCharArray()).verified;
+    }
+
+    public static User login(User user, String passw) {
+        Data data = Data.getInstance();
+        if(checkpw(passw, user.getPasswhash())) {
+            Log.i("dhbwverwaltung/login", user.getEmail() + " logged in");
+            data.setUser(user);
+            return user;
+        }
+        return null;
     }
 }
