@@ -42,8 +42,10 @@ public class MainActivity extends AppCompatActivity {
             ArrayList<User> users = new ArrayList<>();
             User user1 = new User(123, "test", "test@dhbw.de", Authentication.hashpw("test"));
             User user2 = new User(124, "julian", "email@email.de", Authentication.hashpw("passwort"));
+            User user3 = new User(124, "moritz", "moritz@dhbw.de", Authentication.hashpw("pw"));
             users.add(user1);
             users.add(user2);
+            users.add(user3);
             FileIO file = new FileIO("/dhbwverwaltung/users.json", false);
             file.writeToFile(User.toJSON(users));
             Log.i("dhbwverwaltung/userdb", "created");

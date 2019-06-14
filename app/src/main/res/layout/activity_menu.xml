@@ -45,20 +45,6 @@
                 android:textDirection="inherit" />
 
             <TextView
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:clickable="false"
-                android:focusable="auto"
-                android:text="@string/view_Einstellungen"
-                android:textAlignment="textStart"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textDirection="inherit" />
-
-            <TextView
                 android:id="@+id/textView9"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -126,6 +112,20 @@
                 android:focusable="auto"
                 android:onClick="openSecretaryView"
                 android:text="@string/view_Sekretariat"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textDirection="inherit" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="false"
+                android:focusable="auto"
+                android:text="@string/view_Einstellungen"
                 android:textAlignment="textStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textDirection="inherit" />
