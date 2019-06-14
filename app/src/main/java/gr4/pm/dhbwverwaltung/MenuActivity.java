@@ -8,6 +8,8 @@ package gr4.pm.dhbwverwaltung;
 
         import javax.security.auth.login.LoginException;
 
+        import gr4.pm.dhbwverwaltung.data.Data;
+
 public class MenuActivity extends MainActivity{
 
     @Override
@@ -15,7 +17,9 @@ public class MenuActivity extends MainActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
     }
+
     public void logoffUser(View view) {
+        Data.getInstance().setUser(null); // löscht current user aus storage
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent); //wechselt Ansicht zu activity_main
         finish();
