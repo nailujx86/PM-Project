@@ -11,6 +11,7 @@ import android.widget.EditText;
 import java.util.ArrayList;
 
 import gr4.pm.dhbwverwaltung.auth.Authentication;
+import gr4.pm.dhbwverwaltung.data.Data;
 import gr4.pm.dhbwverwaltung.io.FileIO;
 import gr4.pm.dhbwverwaltung.objects.User;
 
@@ -57,6 +58,22 @@ public class MainActivity extends AppCompatActivity {
         String username = editTextUserName.getText().toString(); // speichert username in
         EditText editTextPassword = (EditText) findViewById(R.id.editText);
         String password = editTextPassword.getText().toString();
+
+        FileIO db = new FileIO("/dhbwverwaltung/users.json", false);
+        String jsondb = db.readFromFile();
+        ArrayList<User> users = User.parse(jsondb);
+
+        for(User user : users) {
+            if(user.getEmail().equals(username)) {
+                Log.i("dhbwverwaltung/login", "found user " + user.getEmail());
+                Authentication.login(user, password);
+                break;
+            }
+        }
+
+        if(Data.getInstance().getUser() == null)
+            return;
+
         startActivity(intent); //wechselt Ansicht zu activity_menu
         finish();
         overridePendingTransition(0,0);

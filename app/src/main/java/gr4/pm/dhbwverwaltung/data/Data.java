@@ -6,7 +6,7 @@ public class Data {
     private static Data instance;
     private Data(){};
 
-    private User curUser;
+    private User curUser = null;
 
     public static synchronized Data getInstance() {
         if(Data.instance == null) {
