@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         if (!FileIO.fileExists("/dhbwverwaltung/users.json", false)) {
             ArrayList<User> users = new ArrayList<>();
             User user1 = new User(123, "test", "test@dhbw.de", Authentication.hashpw("test"));
-            User user2 = new User(123, "julian", "email@email.de", Authentication.hashpw("passwort"));
+            User user2 = new User(124, "julian", "email@email.de", Authentication.hashpw("passwort"));
             users.add(user1);
             users.add(user2);
             FileIO file = new FileIO("/dhbwverwaltung/users.json", false);
