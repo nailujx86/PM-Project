@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import gr4.pm.dhbwverwaltung.auth.Authentication;
 import gr4.pm.dhbwverwaltung.data.Data;
 import gr4.pm.dhbwverwaltung.io.FileIO;
+import gr4.pm.dhbwverwaltung.objects.Note;
 import gr4.pm.dhbwverwaltung.objects.User;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        initUserDatabase();
+        initDatabases();
 
         setContentView(R.layout.activity_login);
 
@@ -37,12 +38,12 @@ public class MainActivity extends AppCompatActivity {
         */
     }
 
-    private void initUserDatabase() {
+    private void initDatabases() {
         if (!FileIO.fileExists("/dhbwverwaltung/users.json", false)) {
             ArrayList<User> users = new ArrayList<>();
             User user1 = new User(123, "test", "test@dhbw.de", Authentication.hashpw("test"));
             User user2 = new User(124, "julian", "email@email.de", Authentication.hashpw("passwort"));
-            User user3 = new User(124, "moritz", "moritz@dhbw.de", Authentication.hashpw("pw"));
+            User user3 = new User(125, "moritz", "moritz@dhbw.de", Authentication.hashpw("pw"));
             users.add(user1);
             users.add(user2);
             users.add(user3);
@@ -51,6 +52,22 @@ public class MainActivity extends AppCompatActivity {
             Log.i("dhbwverwaltung/userdb", "created");
         } else {
             Log.i("dhbwverwaltung/userdb", "exists");
+        }
+        if(!FileIO.fileExists("/dhbwverwaltung/notes.json", false)) {
+            ArrayList<Note> notes = new ArrayList<>();
+            Note note1 = new Note(1, 124, "Notiz: Julian");
+            Note note2 = new Note(2, 124, "Eine etwas längere Notiz mit einem\nZeilenumbruch!");
+            Note note3 = new Note(3, 125, "Eine Notiz");
+            notes.add(note1);
+            notes.add(note2);
+            notes.add(note3);
+            FileIO file = new FileIO("/dhbwverwaltung/notes.json", false);
+            file.writeToFile(Note.toJSON(notes));
+            Log.d("dhbwverwaltung/notedb", "initDatabases: " + Note.toJSON(notes));
+            Log.d("dhbwverwaltung/notedb", "initDatabased: " + Note.toJSON(Note.parse(Note.toJSON(notes))));
+            Log.i("dhbwverwaltung/notedb", "created");
+        } else {
+            Log.i("dhbwverwaltung/notedb", "exists");
         }
     }
 
