@@ -11,4 +11,5 @@
     <string name="view_Sekretariat">Sekretariat</string>
     <string name="view_Studenten">Studenten</string>
     <string name="view_Einstellungen">Einstellungen</string>
+    <string name="checkbox_Angemeldet">Angemeldet bleiben</string>
 </resources>
