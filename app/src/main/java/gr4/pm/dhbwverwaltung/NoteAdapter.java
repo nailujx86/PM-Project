@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +13,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import gr4.pm.dhbwverwaltung.data.Data;
 import gr4.pm.dhbwverwaltung.objects.Note;
 
-public class NoteAdapter extends RecyclerView.Adapter {
+public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder> {
 
     private Context context;
     private ArrayList<Note> notes;
@@ -33,8 +35,9 @@ public class NoteAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder viewHolder, int i) {
+    public void onBindViewHolder(MyViewHolder viewHolder, int i) {
         viewHolder.text.setText(notes.get(i).getContents());
+        Log.d("dhbwverwaltung/notedb", "onBindViewHolder: " + notes.get(i));
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +54,7 @@ public class NoteAdapter extends RecyclerView.Adapter {
         return notes.size();
     }
 
-    public class MyViewHolder extends ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView text;
 
         public MyViewHolder(View itemView) {
@@ -59,5 +62,4 @@ public class NoteAdapter extends RecyclerView.Adapter {
             text = (TextView) itemView.findViewById(R.id.text);
         }
     }
-}
 }

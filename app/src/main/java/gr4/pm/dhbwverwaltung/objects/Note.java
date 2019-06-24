@@ -56,7 +56,7 @@ public class Note {
             for (int i = 0; i < noteArr.length(); i++) {
                 JSONObject noteDetail = noteArr.getJSONObject(i);
                 String contents = noteDetail.getString("contents");
-                int userId = noteDetail.getInt("userId");
+                int userId = noteDetail.getInt("idUser");
                 int id = noteDetail.getInt("id");
                 notes.add(new Note(id, userId, contents));
             }

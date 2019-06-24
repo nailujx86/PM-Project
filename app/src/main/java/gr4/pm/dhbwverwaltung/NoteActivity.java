@@ -1,6 +1,7 @@
 package gr4.pm.dhbwverwaltung;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 
@@ -29,5 +30,10 @@ public class NoteActivity extends MainActivity {
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        NoteAdapter adapter = new NoteAdapter(this, notes);
+        recyclerView.setAdapter(adapter);
     }
 }
