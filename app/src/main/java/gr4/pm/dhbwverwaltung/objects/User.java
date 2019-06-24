@@ -96,7 +96,7 @@ public class User {
                 userobj.put("email", user.getEmail());
                 userobj.put("id", user.getId());
                 userobj.put("passwhash", user.getPasswhash());
-                userobj.put("StayLoggedIn",user.getStayLoggedIn());
+                userobj.put("stayLoggedIn",user.getStayLoggedIn());
                 arr.put(userobj);
             }
             obj.put("users", arr);

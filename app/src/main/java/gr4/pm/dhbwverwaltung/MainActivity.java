@@ -20,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        initUserDatabase();
-
         setContentView(R.layout.activity_login);
 
 
@@ -38,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
         */
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initUserDatabase();
+    }
+
     private void initUserDatabase() {
         if (!FileIO.fileExists("/dhbwverwaltung/users.json", false)) {
             ArrayList<User> users = new ArrayList<>();
@@ -51,13 +55,14 @@ public class MainActivity extends AppCompatActivity {
             file.writeToFile(User.toJSON(users));
             Log.i("dhbwverwaltung/userdb", "created");
         } else {//check if there is a user with loggedIn Attribute
+            Log.i("dhbwverwaltung/userdb", "exists");
             FileIO db = new FileIO("/dhbwverwaltung/users.json", false);
             String jsondb = db.readFromFile();
             ArrayList<User> users = User.parse(jsondb);
             Data data = Data.getInstance();
             for(User user : users) {
                 if(user.getStayLoggedIn().equals(true)) {
-                    Log.i("dhbwverwaltung/login", "user " + user.getEmail() + "is already logged in");
+                    Log.i("dhbwverwaltung/login", "user " + user.getEmail() + " is already logged in");
                     data.setUser(user); //login User from database
                     break;
                 }
@@ -66,8 +71,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent); //wechselt Ansicht zu activity_menu
             finish();
             overridePendingTransition(0,0);
-
-            Log.i("dhbwverwaltung/userdb", "exists");
         }
     }
 
@@ -97,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(Data.getInstance().getUser() == null)
             return;
+
+        //db.writeToFile(User.toJSON(users));
 
         startActivity(intent); //wechselt Ansicht zu activity_menu
         finish();
