@@ -11,7 +11,6 @@ public class User {
     private String name;
     private String email;
     private String passwhash;
-    private Boolean stayLoggedIn;
 
     public int getId() {
         return id;
@@ -37,20 +36,19 @@ public class User {
         this.email = email;
     }
 
-    public String getPasswhash() { return passwhash; }
+    public String getPasswhash() {
+        return passwhash;
+    }
 
-    public void setPasswhash(String passwhash) { this.passwhash = passwhash;  }
+    public void setPasswhash(String passwhash) {
+        this.passwhash = passwhash;
+    }
 
-    public Boolean getStayLoggedIn() { return stayLoggedIn; }
-
-    public void setStayLoggedIn(Boolean stayLoggedIn) { this.stayLoggedIn = stayLoggedIn;  }
-
-    public User(int id, String name, String email, String passwhash, Boolean stayLoggedIn) {
+    public User(int id, String name, String email, String passwhash) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.passwhash = passwhash;
-        this.stayLoggedIn = stayLoggedIn;
     }
 
     /**
@@ -71,8 +69,7 @@ public class User {
                 String email = userDetail.getString("email");
                 int id = userDetail.getInt("id");
                 String passw = userDetail.getString("passwhash");
-                Boolean stayLoggedIn = userDetail.getBoolean("stayLoggedIn");
-                users.add(new User(id, name, email, passw, stayLoggedIn));
+                users.add(new User(id, name, email, passw));
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -96,7 +93,6 @@ public class User {
                 userobj.put("email", user.getEmail());
                 userobj.put("id", user.getId());
                 userobj.put("passwhash", user.getPasswhash());
-                userobj.put("StayLoggedIn",user.getStayLoggedIn());
                 arr.put(userobj);
             }
             obj.put("users", arr);
