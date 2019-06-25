@@ -11,6 +11,7 @@
     <string name="view_Sekretariat">Sekretariat</string>
     <string name="view_Studenten">Studenten</string>
     <string name="view_Einstellungen">Einstellungen</string>
+<<<<<<< HEAD
     // Prof view Strings----- Schulz
     <string name="name_SSchulz">Stephan Schulz</string>
     <string name="ort_SSchulz">Rotebühlplatz 41; Raum: 0.01; 70178 Stuttgart</string>
@@ -36,4 +37,6 @@
     <string name="jahr3">3. Studienjahr</string>
     <string name="name_jahr3">Andrea Dölker </string>
     <string name="Info_Jahr3">Tel.: 0711/1849-4516 / E-Mail: andrea.doelker@dhbw-stuttgart.de</string>
+=======
+>>>>>>> parent of 1d04abf... stay logged in (FUNKTIONIERT NOCH NICHT)
 </resources>
