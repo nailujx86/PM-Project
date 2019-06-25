@@ -8,5 +8,4 @@ public class ProfActivity extends MainActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prof);
     }
-
 }
