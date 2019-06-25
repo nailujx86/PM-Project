@@ -20,6 +20,7 @@ public class MenuActivity extends MainActivity{
     }
 
     public void logoffUser(View view) {
+        Data.getInstance().getUser().setStayLoggedIn(false);
         Data.getInstance().setUser(null); // löscht current user aus storage
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent); //wechselt Ansicht zu activity_main
