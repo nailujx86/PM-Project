@@ -11,4 +11,16 @@
     <string name="view_Sekretariat">Sekretariat</string>
     <string name="view_Studenten">Studenten</string>
     <string name="view_Einstellungen">Einstellungen</string>
+    // Prof view Strings----- Schulz
+    <string name="name_SSchulz">Stephan Schulz</string>
+    <string name="ort_SSchulz">Rotebühlplatz 41; Raum: 0.01; 70178 Stuttgart</string>
+    <string name="mail_SSchulz">stephan.schulz@dhbw-stuttgart.de</string>
+   // Hladik
+    <string name="name_Hladik">Jan Hladik</string>
+    <string name="ort_Hladik">Rotebühlplatz 41; Raum: 0.03; 70178 Stuttgart</string>
+    <string name="mail_Hladik">Jan.Hladik@dhbw-stuttgart.de</string>
+    //Strey
+    <string name="name_Strey">Alfred Strey</string>
+    <string name="ort_Strey">Rotebühlplatz 41; Raum: 0.05; 70178 Stuttgart</string>
+    <string name="mail_Strey">alfred.strey@dhbw-stuttgart.de</string>
 </resources>
