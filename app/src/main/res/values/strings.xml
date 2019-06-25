@@ -23,4 +23,5 @@
     <string name="name_Strey">Alfred Strey</string>
     <string name="ort_Strey">Rotebühlplatz 41; Raum: 0.05; 70178 Stuttgart</string>
     <string name="mail_Strey">alfred.strey@dhbw-stuttgart.de</string>
+    <string name="checkbox_Angemeldet">Angemeldet bleiben</string>
 </resources>
